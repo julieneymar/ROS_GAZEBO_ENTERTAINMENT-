@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot name="MonRobot">
+
+  <!-- Base -->
+  <link name="Labase">
+    <visual>
+      <origin xyz="0 0 0.3" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.6" radius="0.2"/>
+      </geometry>
+      <material name="yellow">
+        <color rgba="0 0 1 "/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.3" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.6" radius="0.2"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="0.01" iyy="0.01" izz="0.01" ixy="0" ixz="0" iyz="0"/>
+      <origin xyz="0 0 0.3" rpy="0 0 0"/>
+    </inertial>
+  </link>
+
+  <!-- Right leg -->
+  <link name="right_leg">
+    <visual>
+      <origin xyz="0 0 -0.3" rpy="0 1.57075 0"/>
+      <geometry>
+        <box size="0.6 0.1 0.2"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.3" rpy="0 1.57075 0"/>
+      <geometry>
+        <box size="0.6 0.1 0.2"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="0.001" iyy="0.001" izz="0.001" ixy="0" ixz="0" iyz="0"/>
+      <origin xyz="0 0 -0.3" rpy="0 0 0"/>
+    </inertial>
+  </link>
+
+  <!-- Joint -->
+  <joint name="base_to_right_leg" type="fixed">
+    <parent link="Labase"/>
+    <child link="right_leg"/>
+    <origin xyz="0 0 -0.3" rpy="0 0 0"/>
+  </joint>
+
+</robot>
+ 
